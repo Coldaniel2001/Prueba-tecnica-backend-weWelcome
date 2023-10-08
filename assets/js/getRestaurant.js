@@ -31,7 +31,7 @@ function getAllRestaurant(data) {
 
             <div>
                 <button id="editRestaurant" onclick="editDetailsRestaurant('${restaurantDetails.nombre}', '${restaurantDetails.direccion}', '${restaurantDetails.telefono}' ,'${restaurantDetails.id}')">Editar</button>
-                <button id="deleteRestaurant">Borrar</button>
+                <button id="deleteRestaurant" onclick="deleteDetailsRestaurant('${restaurantDetails.id}')">Borrar</button>
             </div>
 
             <dialog id="modalRestaurantEdit">
@@ -46,6 +46,14 @@ function getAllRestaurant(data) {
                         <button id="modalRestaurantEditClose" onclick="editDetailClose()" autofocus>Cerrar</button>
                         <button id="modalRestaurantEditSucess" onclick="editDetailSucess()" type="submit">Aceptar</button>
                     </div>
+            </dialog>
+
+            <dialog id="modalRestaurantDelete">
+                <h3>¿Estás seguro de que quieres borrar el restaurante con ID: <span id="idDelete"></span>?</h3>
+                <div class="chance-Options__container">
+                    <button id="modalRestaurantDeleteClose" onclick="deleteDetailClose()" autofocus>Cerrar</button>
+                    <button id="modalRestaurantDeleteSucess" onclick="deleteDetailSucess()" type="submit">Aceptar</button>
+                </div>
             </dialog>
 
         </div>

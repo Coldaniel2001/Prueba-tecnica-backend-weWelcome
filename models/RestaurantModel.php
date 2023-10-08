@@ -67,4 +67,21 @@ class RestaurantModel extends DbConection
             return [$e];
         }
     }
+    function deleteRestaurant($id)
+    {
+        $query = $this->db->connect()->prepare("DELETE FROM details
+                                                WHERE id = ?");
+        $query->bindParam(1, $id);
+
+        $select = $this->db->connect()->prepare("SELECT * FROM details");
+
+        try {
+            $query->execute();
+            $select->execute();
+            $allRestaurant = $select->fetchAll();
+            return $allRestaurant;
+        } catch (PDOException $e) {
+            return [$e];
+        }
+    }
 }

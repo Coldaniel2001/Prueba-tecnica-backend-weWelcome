@@ -13,7 +13,9 @@ switch ($controller) {
     case 'editRestaurant':
         editRestaurant();
         break;
-
+    case 'deleteRestaurant':
+        deleteRestaurant();
+        break;
     default:
         echo 'Invalid controller';
         break;
@@ -40,4 +42,10 @@ function editRestaurant(){
 
     $restaurant = new RestaurantModel();
     echo json_encode($restaurant->editRestaurant($name, $address, $phone, $id));
+}
+function deleteRestaurant(){
+    $id = $_POST['id'];
+
+    $restaurant = new RestaurantModel();
+    echo json_encode($restaurant->deleteRestaurant($id));
 }

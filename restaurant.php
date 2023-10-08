@@ -12,6 +12,7 @@
     <script src="./assets/js/createRestaurant.js?v=<?php echo time(); ?>" defer></script>
     <script src="./assets/js/getRestaurant.js?v=<?php echo time(); ?>" defer></script>
     <script src="./assets/js/editRestaurant.js?v=<?php echo time(); ?>" defer></script>
+    <script src="./assets/js/deleteRestaurant.js?v=<?php echo time(); ?>" defer></script>
 </head>
 
 <body>
