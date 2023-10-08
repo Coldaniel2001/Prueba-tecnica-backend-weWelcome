@@ -30,6 +30,7 @@ function getInformacionRestaurant() {
         createRestaurant.append("address", formAddress.value);
         createRestaurant.append("phone", formPhone.value);
         dialogCreateRestaurant.close();
+        spanPopUpIncorrect.setAttribute('style', "visibility: hidden")
         formName.value = "";
         formAddress.value = "";
         formPhone.value = "";
@@ -38,59 +39,11 @@ function getInformacionRestaurant() {
             body: createRestaurant,
         })
             .then((res) => res.json())
-            .then((data) => getNewRestaurant(data))
+            .then((data) => getAllRestaurant(data))
 
     } else {
         spanPopUpIncorrect.setAttribute('style', "visibility: visible")
     }
 }
 
-function getNewRestaurant(data) {
-    dataRestaurant.innerHTML = "";
-    data.map((restaurantDetails) => {
-        dataRestaurant.innerHTML += `
-        <div class="description__container">
-        <div>
-            <span>${restaurantDetails.id}</span>
-        </div>
-        <div>
-            <span>${restaurantDetails.nombre}</span>
-        </div>
-        <div>
-            <span>${restaurantDetails.direccion}</span>
-        </div>
-        <div>
-            <span>${restaurantDetails.telefono}</span>
-        </div>
-        <div>
-            <span>${restaurantDetails.created_at}</span>
-        </div>
-        <div>
-            <span>${restaurantDetails.updated_at}</span>
-        </div>
-
-        <div>
-            <button  id="editRestaurant" onclick="editDetailsRestaurant()">Editar</button>
-            <button id="deleteRestaurant">Borrar</button>
-        </div>
-
-        <dialog id="modalRestaurantEdit">
-            <form id="formEditRestaurant">
-                <label>Nombre: <input type="text" id="newName"> </label>
-                <label>Dirección: <input type="text" id="newAddress"> </label>
-                <label>Telefono: <input type="number" id="newPhone"> </label>
-                <span id="spanPopUpIncorrect">Tienes que rellenar el formulario para editar restaurante</span>
-            </form>
-            <div>
-                <button id="modalRestaurantEditClose"  autofocus>Cerrar</button>
-                <button id="modalRestaurantEditSucess"  type="submit">Aceptar</button>
-            </div>
-        </dialog>
-
-    </div>
-        `
-    })
-
-    
-}
 

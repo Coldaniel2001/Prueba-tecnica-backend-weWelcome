@@ -42,7 +42,7 @@ section {
     justify-content: center;
 }
 
-.bold__description{
+.bold__description {
     font-weight: bold;
     font-size: 20px;
 }
@@ -59,4 +59,20 @@ dialog div {
     display: flex;
     justify-content: space-around;
     flex-direction: row;
+    text-align: center;
+}
+
+.chance-Options__container{
+    margin-top: 1rem;
+    width: 100%;
+    margin-left:12rem
+}
+
+#modalRestaurantEditClose{
+    background-color: red;
+    margin-right: 5rem;
+}
+#modalRestaurantEditSucess{
+    background-color: green;
+    margin-left: 5rem;
 }

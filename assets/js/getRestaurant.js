@@ -5,7 +5,9 @@ fetch("./controllers/restaurant.php?controller=getRestaurant")
     .then((data) => getAllRestaurant(data))
 
 function getAllRestaurant(data) {
+    dataRestaurant.innerHTML = "";
     data.map((restaurantDetails) => {
+
         dataRestaurant.innerHTML += `
             <div class="description__container">
             <div>
@@ -28,20 +30,21 @@ function getAllRestaurant(data) {
             </div>
 
             <div>
-                <button id="editRestaurant" onclick="editDetailsRestaurant('${restaurantDetails.nombre}', '${restaurantDetails.direccion}', '${restaurantDetails.telefono}')">Editar</button>
+                <button id="editRestaurant" onclick="editDetailsRestaurant('${restaurantDetails.nombre}', '${restaurantDetails.direccion}', '${restaurantDetails.telefono}' ,'${restaurantDetails.id}')">Editar</button>
                 <button id="deleteRestaurant">Borrar</button>
             </div>
 
             <dialog id="modalRestaurantEdit">
                     <form id="formEditRestaurant">
+                        <p id="idRestaurant"></p>
                         <label>Nombre: <input type="text" id="newName"> </label>
                         <label>Dirección: <input type="text" id="newAddress"> </label>
                         <label>Telefono: <input type="number" id="newPhone"> </label>
-                        <span id="spanPopUpIncorrect">Tienes que rellenar el formulario para editar restaurante</span>
+                        <span id="spanPopUpIncorrectEdit">Tienes que rellenar el formulario para editar restaurante</span>
                     </form>
-                    <div>
-                        <button id="modalRestaurantEditClose" autofocus>Cerrar</button>
-                        <button id="modalRestaurantEditSucess" type="submit">Aceptar</button>
+                    <div class="chance-Options__container">
+                        <button id="modalRestaurantEditClose" onclick="editDetailClose()" autofocus>Cerrar</button>
+                        <button id="modalRestaurantEditSucess" onclick="editDetailSucess()" type="submit">Aceptar</button>
                     </div>
             </dialog>
 

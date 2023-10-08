@@ -10,6 +10,9 @@ switch ($controller) {
     case 'getRestaurant':
         getRestaurant();
         break;
+    case 'editRestaurant':
+        editRestaurant();
+        break;
 
     default:
         echo 'Invalid controller';
@@ -28,4 +31,13 @@ function createRestaurant(){
 function getRestaurant(){
     $restaurant = new RestaurantModel();
     echo json_encode($restaurant->getRestaurant());
+}
+function editRestaurant(){
+    $name = $_POST['newName'];
+    $address = $_POST['newAddress'];
+    $phone = $_POST['newPhone'];
+    $id = $_POST['id'];
+
+    $restaurant = new RestaurantModel();
+    echo json_encode($restaurant->editRestaurant($name, $address, $phone, $id));
 }
