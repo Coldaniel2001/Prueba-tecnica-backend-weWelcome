@@ -1,0 +1,62 @@
+section {
+    width: 80%;
+    height: 80%;
+}
+
+.restaurant__button--created {
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+.icons__register {
+    width: 30px;
+}
+
+.title__main__container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.title__main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.description__container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.description__container div {
+    width: 14%;
+}
+
+#dataRestaurant {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bold__description{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+dialog * {
+    color: black;
+    display: flex;
+    flex-direction: column;
+}
+
+dialog div {
+    margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
